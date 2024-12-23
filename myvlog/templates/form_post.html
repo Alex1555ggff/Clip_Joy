@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+<p></p>
+
+{% block title %} {{title}} {% endblock title %}
+<p></p>
+
+{% block style %} {% load static %}
+
+<link rel="stylesheet" href='{% static "clup_joy/css/login.css" %}' />
+{% endblock style %}
+<p></p>
+
+{% block content %}
+<div class="contain">
+	<div class="login_contain">
+		<span class="mainlable">{{ title }}</span>
+		<div class="form_contain">
+			<form action="" method="post" enctype="multipart/form-data">
+				{% csrf_token %} {{ form.as_p }}
+				<div id="fileName" class="file-name"></div>
+				<span class="btn_sub">
+					<button type="submit">{{ title_btn }}</button>
+				</span>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

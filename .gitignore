@@ -1,0 +1,7 @@
+.idea/
+djvenv/
+.env
+db.sqlite
+media/
+/shelf/
+*.log

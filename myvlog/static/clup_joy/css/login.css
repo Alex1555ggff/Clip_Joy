@@ -1,0 +1,176 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	display: flex;
+
+	justify-content: center;
+	width: 100%;
+	background-color: #151515;
+}
+
+.contain {
+	align-items: center;
+	justify-content: center;
+}
+
+.login_contain {
+	margin-top: 150px;
+	background-color: #000;
+	width: 350px;
+	padding: 15px;
+	border-radius: 20px;
+}
+
+.logout_contain {
+	display: flex;
+	margin-top: 25px;
+	background-color: #000;
+	height: 30px;
+	width: 350px;
+	padding: 15px;
+	border-radius: 20px;
+	color: coral;
+	align-items: center;
+	justify-content: center;
+	font-size: 17px;
+}
+
+a {
+	text-decoration: none;
+	color: aqua;
+}
+
+.mainlable {
+	color: coral;
+	display: block;
+	margin: 10px;
+	font-size: 28px;
+	font-weight: bolder;
+	margin-left: 25px;
+}
+
+.form_contain {
+	margin-top: 30px;
+	margin-left: 10px;
+	color: white;
+}
+
+.form_contain input {
+	outline: none;
+	margin-bottom: 15px;
+	height: 35px;
+	width: 320px;
+	border-radius: 20px;
+	border: 1px solid coral;
+	background-color: #222;
+	color: coral;
+	padding-left: 15px;
+	transition: all 0.2 ease-in;
+}
+
+.btn_sub button {
+	height: 40px;
+	width: 330px;
+	color: coral;
+	border-radius: 40px;
+	background-color: #222;
+	padding: 10px;
+	margin-bottom: 20px;
+	font-size: medium;
+	margin-top: 60px;
+	border-color: coral;
+	transition: all 0.35 ease-in;
+}
+
+.form_contain input[type='file'] {
+	outline: none;
+	margin-bottom: 15px;
+	height: 35px;
+	width: 330px;
+	border-radius: 20px;
+	border: 2px dashed coral; /* Используем пунктирную рамку */
+	background-color: #222;
+	color: coral;
+	padding: 0;
+	transition: all 0.2 ease-in;
+	cursor: pointer; /* Добавляем курсор для обозначения кликабельности */
+}
+
+.form_contain input[type='file']::file-selector-button {
+	background-color: #333;
+	border: none;
+	border-radius: 20px;
+	color: coral;
+	padding: 10px 12px;
+	margin-right: 10px;
+	width: 180px;
+	cursor: pointer;
+}
+
+.form_contain label {
+	color: coral;
+	font-weight: bold;
+}
+
+.file-name {
+	margin-top: 5px;
+	margin-bottom: 15px;
+	color: coral;
+	font-size: 14px;
+}
+
+.good_register {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.good_register2 {
+	justify-content: center;
+	margin-top: 100px;
+	width: 75%;
+	padding: 20px;
+	border-radius: 25px;
+	background-color: #000;
+	color: coral;
+}
+
+.login_span {
+	margin-top: 30px;
+	display: flex;
+	justify-content: center;
+}
+
+.login_span h3 {
+	padding: 10px;
+	border-radius: 25px;
+	border: 2px solid aqua;
+}
+
+h1 {
+	margin-bottom: 10px;
+}
+
+textarea {
+	padding: 10px;
+	outline: none;
+	color: #fff;
+	max-width: 310px;
+	min-width: 310px;
+	background-color: #222;
+	border-radius: 18px;
+	border: solid coral 2px;
+}
+
+.reset_password_contain {
+	font-weight: bolder;
+	color: coral;
+	transition: all 0.15s ease-in;
+}
+
+.reset_password_contain:hover {
+	color: aqua;
+}

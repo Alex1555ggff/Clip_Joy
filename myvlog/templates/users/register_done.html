@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+<p></p>
+
+{% block title %} Регистрация {% endblock title %}
+<p></p>
+
+{% block style %} {% load static %}
+
+<link rel="stylesheet" href='{% static "clup_joy/css/login.css" %}' />
+
+{% endblock style %}
+<p></p>
+
+{% block content %}
+<div class="good_register">
+	<div class="good_register2">
+		<h1>Поздравляем с успешной регистрацией</h1>
+		<h3>
+			Мы рады видеть вас среди наших новых пользователей!!! Теперь вы можете:
+			выкладывать видео, оставлять комментарии, ставать лайки и дизлайки(если
+			видео вам не понравилась). Желаем приятного пользования!!!
+		</h3>
+		<span class="login_span"
+			><h3>
+				<a href="/users/login">Остался только войти в аккаунт</a>
+			</h3></span
+		>
+	</div>
+</div>
+
+{% endblock content %}
