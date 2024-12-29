@@ -10,8 +10,8 @@ Clip Joy - видио хостинг
 
 
  Для запуска пропишите 
-
- '''
+ 
+```
  git clone https://github.com/Alex1555ggff/Clip_Joy.git
  cd ./myvlog
  pip install -r requirements.txt
@@ -19,4 +19,4 @@ Clip Joy - видио хостинг
  python manage.py makemigrations
  python manage.py migrate
  python manage.py createsuperuser
-'''
+```
