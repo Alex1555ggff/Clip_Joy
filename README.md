@@ -13,7 +13,7 @@ Clip Joy - видио хостинг
  
 ```
  git clone https://github.com/Alex1555ggff/Clip_Joy.git
- cd ./myvlog
+ cd ./Clip_Joy/myvlog/
  pip install -r requirements.txt
  python generate_token.py
  python manage.py makemigrations
