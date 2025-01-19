@@ -1,0 +1,19 @@
+Clip Joy - видео хостинг
+
+Главны конкурент ютуба во времена замедления!!!
+
+Перед запуском в фаиле docker-compose.yml, в разделе
+
+```
+services: 
+    django:
+        environment:
+            Добавте:
+            DATABASE_URL: 
+            SECRET_KEY: 
+            EMAIL_PASSWORD: 
+            DEBUG: '0'
+```
+
+После чего запустите команду 
+```docker compose up --build```
