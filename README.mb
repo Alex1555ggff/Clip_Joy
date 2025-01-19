@@ -4,16 +4,15 @@ Clip Joy - видео хостинг
 
 Перед запуском в фаиле docker-compose.yml, в разделе
 
-'''
-services: 
+
+`services: 
     django:
         environment:
             Добавте:
             DATABASE_URL: 
             SECRET_KEY: 
             EMAIL_PASSWORD: 
-            DEBUG: '0'
-'''
+            DEBUG: '0'`
 
 После чего запустите команду 
-'''docker compose up --build'''
+`docker compose up --build`
