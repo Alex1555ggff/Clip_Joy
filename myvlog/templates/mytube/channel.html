@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+<p></p>
+
+{% block title %} {{ title }} {% endblock title %}
+<p></p>
+
+{% block style %} {% load static %}
+
+<link rel="stylesheet" href='{% static "clup_joy/css/styles_block.css" %}' />
+<link rel="stylesheet" href='{% static "clup_joy/css/styles_channel.css" %}' />
+<script src="{% static 'clup_joy/js/subscribe_form.js' %}"></script>
+{% endblock style %}
+<p></p>
+
+{% block content %}
+<div class="main_container">
+	<div class="about">
+		<div class="about_block">
+			<div class="img">
+				<img src="{{ author_channel.logo.url }}" alt="Вы" />
+			</div>
+			<div class="title">
+				<h1>{{ author_channel.name }}</h1>
+				<span>
+					<span id="subscribers-count">
+						{{ author_channel.subscribers.count }}
+					</span> подписчиков
+				</span>
+				{% if author_channel == user %}
+				<div class="account_management">
+					<a href="{% url 'account_management' %}"
+						>Управление видео и аккаунтом</a
+					>
+				</div>
+				{% else %}
+					{% if subscribe_status %}
+					<button
+						type="submit"
+						class="subscribe-btn active"
+						id="subscribe-btn-id"
+						easy-toggle="#subscribe-btn-id"
+						easy-class="active" 
+						
+						onclick="subscribe(`{{ author_channel.name }}`)">
+					</button>
+					{% else %}
+					<button
+						type="submit"
+						class="subscribe-btn"
+						id="subscribe-btn-id"
+						easy-toggle="#subscribe-btn-id"
+						easy-class="active"
+						onclick="subscribe(`{{ author_channel.name }}`)">
+					</button>
+					{% endif %}
+				{% endif %}
+			</div>
+		</div>
+		{% if author_channel.description %}
+		<div class="description">
+			<details>
+				<summary>Описание</summary>
+				<span> {{author_channel.description}} </span>
+			</details>
+		</div>
+		{% endif %}
+	</div>
+
+	<main class="main-block" id="main-block">
+		<hr style="display: flex" />
+		{% for video in author_channel.video_set.all %}
+		<div class="container">
+			<a href="{% url 'watch' video_name=video.name %}">
+				<div class="image-block">
+					<img src="{{ video.photo.url }}" alt="" />
+				</div>
+
+				<div class="info">
+					<div class="author-img">
+						<img src="{{ author_channel.logo.url }}" alt="" />
+					</div>
+
+					<div class="info-text">
+						<h3>{{ video.name }}</h3>
+						<span>1,2 млн | {{ video.pub_date }}</span>
+					</div>
+				</div>
+			</a>
+		</div>
+		{% endfor %}
+	</main>
+</div>
+{% endblock content %}

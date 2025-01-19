@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+<p></p>
+
+{% block title %} {{title}} {% endblock title %}
+<p></p>
+
+{% block style %} {% load static %}
+
+<link rel="stylesheet" href='{% static "clup_joy/css/login.css" %}' />
+{% endblock style %}
+<p></p>
+
+{% block content %}
+<div class="contain">
+	<div class="login_contain">
+		<span class="mainlable">{{ title }}</span>
+		<div class="form_contain">
+			<span class="btn_sub">
+				<a href="{% url 'create_channel' %}">
+					<button>Редактировать канал</button>
+				</a>
+			</span>
+			<span class="btn_sub">
+				<a href="{% url 'upload_video' %}">
+					<button>Загрузить видео</button>
+				</a>
+			</span>
+			<span class="btn_sub">
+				<a href="{% url 'prof' prof_name=user.name %}">
+					<button>Назад</button>
+				</a>
+			</span>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

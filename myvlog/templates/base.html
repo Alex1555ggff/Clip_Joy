@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		{% load static %}
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %} {% endblock %}</title>
+
+		<!-- Шрифты с Google Fonts -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Стили сайта -->
+		{% block style %}{% endblock %}
+		<link
+			rel="stylesheet"
+			href='{% static "/clup_joy/css/styles_heder.css" %}'
+		/>
+	</head>
+	<body>
+		<header>
+			<div class="dropdown">
+				<button
+					class="dropdown-toggle"
+					easy-toggle="#main_menu"
+					easy-class="show"
+					easy-rcoe
+				>
+					<ion-icon name="menu-outline"></ion-icon>
+				</button>
+				<nav id="main_menu" class="main_menu">
+					{% if user.is_authenticated %}
+					<a href="/profile/{{ channel.name }}">Вы </a>
+					{% else %}
+					<a href="{% url 'users:login' %}">Вы </a>
+					{% endif %}
+					<a href="/">Главная</a>
+					<a href="#">Подписки</a>
+					<a href="#">История</a>
+					<a href="#">Понравившиеся</a>
+					<form action="{% url 'users:logout' %}" method="post">
+						{% csrf_token %}
+						<button class="sub_logout" type="submit">Выход из аккаунта</button>
+					</form>
+				</nav>
+			</div>
+			<div class="brend">
+				<a href="/">
+					<span id="span1"><b>Clip</b></span>
+					<span id="span2"><b>Joy</b></span>
+				</a>
+			</div>
+
+			<div class="serch">
+				<input type="text" id="serch-in" class="serch-input" />
+				<button type="submit" class="sub-btn">
+					<ion-icon name="search-outline"></ion-icon>
+				</button>
+			</div>
+
+			<div class="mychenal">
+				{% if user.is_authenticated %}
+				<a href="/profile/{{ user.name|default:'account_management'}}">
+					<img src="{{ user.logo.url }}" alt="Вы" />
+				</a>
+				{% else %}
+				<a href="{% url 'users:login' %}">
+					<span class="login">Войти</span>
+				</a>
+				{% endif %}
+			</div>
+		</header>
+
+		{% block content %}{% endblock %}
+
+		<script src="https://cdn.jsdelivr.net/npm/easy-toggler@2.2.7"></script>
+
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+		></script>
+
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+		></script>
+	</body>
+</html>

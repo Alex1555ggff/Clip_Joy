@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+<p></p>
+
+{% block title %} Clip Joy {% endblock title %}
+<p></p>
+
+{% block style %} {% load static %}
+<link rel="stylesheet" href='{% static "clup_joy/css/styles_block.css" %}' />
+{% endblock style %}
+<p></p>
+
+{% block content %}
+{% load cache %}
+<main class="main-block" id="main-block">
+	{% for video in videos %}
+
+	<div class="container">
+		<a href="{% url 'watch' video_name=video.name %}">
+			<div class="image-block">
+				<img src="{{ video.photo.url }}" alt="" />
+			</div>
+
+			<div class="info">
+				<div class="author-img">
+					<img src="{{ video.author.logo.url }}" alt="" />
+				</div>
+
+				<div class="info-text">
+					<h3>{{ video.name }}</h3>
+					<span>1,2 млн | {{ video.pub_date }}</span>
+				</div>
+			</div>
+		</a>
+	</div>
+
+	{% endfor %}
+</main>
+{% endblock content %}

@@ -1,0 +1,304 @@
+.main-block {
+	margin-top: 65px;
+}
+
+.reacsions {
+	display: flex;
+	margin-top: 15px;
+}
+
+.author-img img {
+	max-width: 45px;
+	max-height: 45px;
+	border-radius: 45px;
+}
+
+.name-chanel {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.subscribe {
+	height: 35px;
+	border-radius: 20px;
+	background-color: #000;
+	color: red;
+	border: 0;
+	font-size: large;
+	font-weight: bolder;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 15px;
+	transition: all 0.2s ease-in;
+}
+
+.subscribe-container :hover {
+	position: relative;
+	box-shadow: 5px 3px 3px red;
+	top: -1px;
+}
+
+.ld {
+	display: flex;
+}
+
+.buttons {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 30px;
+}
+
+.like {
+	transition: all 0.2s ease-in;
+	height: 35px;
+	color: aqua;
+	border: 0;
+	border-radius: 20px 0 0 20px;
+	padding-left: 7px;
+	background-color: #000;
+	font-size: large;
+	font-weight: bolder;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.dislike {
+	height: 35px;
+	color: red;
+	border: 0;
+	border-radius: 0 20px 20px 0;
+	padding-right: 7px;
+	background-color: #000;
+	font-size: large;
+	font-weight: bolder;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s ease-in;
+}
+
+.like.active {
+	transition: all 0.2s ease-in;
+	height: 35px;
+	border: 0;
+	border-radius: 20px 0 0 20px;
+	padding-left: 7px;
+	font-size: 23px;
+	font-weight: bolder;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #000;
+	color: aqua;
+}
+
+.dislike.active {
+	height: 35px;
+	border: 0;
+	border-radius: 0 20px 20px 0;
+	padding-right: 7px;
+	font-size: 23px;
+	font-weight: bolder;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s ease-in;
+	background-color: #000;
+	color: red;
+}
+
+ion-icon {
+	margin-left: 7px;
+	margin-right: 7px;
+}
+
+.ld :hover {
+	background-color: #151515;
+}
+
+.name-chanel {
+	color: #fff;
+}
+
+.vide-name {
+	font-size: 22px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.video-block {
+	margin-top: 30px;
+	display: flex;
+	justify-content: center;
+}
+
+.info-block {
+	display: flex;
+	justify-content: center;
+}
+.video-block video {
+	background-color: #111;
+	border-radius: 15px;
+	display: inline;
+	width: 1420px;
+	height: 800px;
+}
+
+.info-container {
+	margin-top: 10px;
+	display: inline;
+	width: 1420px;
+}
+
+.description {
+	color: #fff;
+	margin-top: 30px;
+	border-radius: 20px;
+	background-color: #222;
+	padding: 15px;
+}
+
+.commentaries {
+	margin-top: 30px;
+	margin-left: 10px;
+	color: white;
+}
+
+.comment-input input {
+	outline: none;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	height: 45px;
+	width: 1385px;
+	border-radius: 20px;
+	border: 1px solid coral;
+	background-color: #222;
+	color: #fff;
+	padding-left: 15px;
+	transition: all 0.2s ease-in;
+}
+
+.comment-input:focus-within {
+	input {
+		border: 1px solid aqua;
+	}
+	.btn_sub button {
+		border-color: aqua;
+		color: aqua;
+	}
+}
+
+.commentaries li {
+	list-style-type: none;
+	color: white;
+	margin-top: 30px;
+}
+
+.comment {
+	display: inline-flex;
+	background-color: #222;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	border-radius: 0 25px 25px 25px;
+}
+
+.comment-author img {
+	width: 45px;
+	height: 45px;
+	border-radius: 25px;
+	margin-right: 20px;
+}
+
+.btn_sub button {
+	position: relative;
+	height: 40px;
+	width: 200px;
+	color: coral;
+	border-radius: 40px;
+	background-color: #222;
+	padding: 10px;
+	margin-bottom: 20px;
+	font-size: medium;
+	left: 1200px;
+	margin-top: 10px;
+	border-color: coral;
+	transition: all 0.2s ease-in;
+}
+
+.a-profurl {
+	text-decoration: none;
+	display: flex;
+}
+
+#delvideo-btn{
+	width: 200px;
+	height: 40px;
+	font-size: large;
+	color: red;
+	display: table;
+	background-color: #000;
+	border: solid 2px red;
+	border-radius: 30px;
+	margin-right: 35px;
+	padding: 4px;
+	transition: all 0.2s ease-in;
+}
+
+#delvideo-btn:hover {
+	box-shadow: 3px 3px 4px red;
+}
+
+.subscribe-btn {
+	width: 200px;
+	height: 40px;
+	font-size: large;
+	color: red;
+	display: table;
+	background-color: #000;
+	border: solid 2px red;
+	border-radius: 30px;
+	margin-right: 35px;
+	padding: 4px;
+	transition: all 0.2s ease-in;
+}
+
+.subscribe-btn:before {
+	content: "Подписаться";
+}
+
+.subscribe-btn:hover {
+	box-shadow: 3px 3px 4px red;
+}
+
+.subscribe-btn.active {
+	width: 200px;
+	height: 40px;
+	font-size: large;
+	display: table;
+	background-color: #000;
+	border-radius: 30px;
+	margin-right: 35px;
+	padding: 4px;
+	transition: all 0.2s ease-in;
+	border: solid 2px #555;
+	color: #555;
+}
+
+.subscribe-btn.active:before {
+	content: "Отписаться";
+}
+
+.subscribe-btn.active:hover {
+	box-shadow: 3px 3px 4px #555;
+}
+
+#subscribe-form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

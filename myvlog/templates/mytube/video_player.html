@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+<p></p>
+
+{% block title %} {{ video.name }} {% endblock title %}
+<p></p>
+
+{% block style %} {% load static %}
+<link rel="stylesheet" href='{% static "clup_joy/css/styles_video.css" %}' />
+{% endblock style %}
+<p></p>
+
+{% block content %}
+<div class="main-block">
+	<div class="video-block">
+		<video
+              controls
+              preload="auto"
+          >
+            <source src="{% url 'stream' video.id %}" type="video/mp4"/>
+            <source src="{% url 'stream' video.id %}" type="video/webm"/>
+		</video>
+	</div>
+	<div class="info-block">
+		<div class="info-container">
+			<span class="vide-name">{{ video.name }}</span>
+			<div class="reacsions">
+				<a class="a-profurl" href="{% url 'prof' prof_name=video.author.name %}">
+					<div class="author-img">
+						<img src="{{video.author.logo.url}}" alt="" />
+					</div>
+					<div class="name-chanel">
+						<h4>{{ video.author.name }}</h4>
+						<span id="subscribers-count">
+							{{ video.author.subscribers.count }}
+						</span>
+					</div>
+				</a>
+				<div class="buttons">
+					{% if user != video.author %}
+						{% if subscribe_status %}
+						<button
+							type="submit"
+							class="subscribe-btn active"
+							id="subscribe-btn-id"
+							onclick="subscribe(`{{ video.author.name }}`)">
+						</button>
+						{% else %}
+						<button
+							type="submit"
+							class="subscribe-btn"
+							id="subscribe-btn-id"
+							onclick="subscribe(`{{ video.author.name }}`)">
+						</button>
+						{% endif %}
+					{% else %}
+						<button
+							type="submit"
+							id="delvideo-btn"
+							onclick="delvideo()">
+							Удалить видео
+						</button>
+					{% endif %}
+
+					<div class="ld">
+							{% if reaction == 'like' %}
+							<button 
+								class="like active"
+								id="like"
+								onclick="reactions('{{ video.name }}', 'like')">
+							{% else %}
+							<button
+								class="like"
+								id="like"
+								onclick="reactions('{{ video.name }}', 'like')">
+							{% endif %}
+								<ion-icon name="thumbs-up-outline"></ion-icon>
+								<span id="like_count">{{ video.liked_by.count }}</span> |
+							</button>
+
+
+							{% if reaction == 'dislike'  %}
+							<button
+								class="dislike active"
+								id="dislike"
+								onclick="reactions('{{ video.name }}', 'dislike')">
+							{% else %}
+							<button
+								class="dislike"
+								id="dislike"
+								onclick="reactions('{{ video.name }}', 'dislike')">
+							{% endif %}
+								<ion-icon name="thumbs-down-outline"></ion-icon>
+								<span id="dislike_count">{{ video.disliked_by.count }}</span>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			{% if video.description %}
+			<div class="description">
+				<details>
+					<summary>Описание:</summary>
+					<p>{{ video.description }}</p>
+				</details>
+			</div>
+			{% endif %}
+			<div class="commentaries">
+				<h2><span id="comment_count">{{ video.comment_set.count }}</span> комментариев</h2>
+				<form id="comment_form">
+					{% csrf_token %}
+					<span class="comment-input">
+						<p>
+							<input type="text"
+								name="text"
+								placeholder="Введите свой комментарий"
+								maxlength="512"
+								required
+								id="id_text">
+						</p>
+						<input type="hidden" , name="video" , value="{{ video.name }}" />
+						<span class="btn_sub">
+							<button type="submit">Оставить комментарий</button>
+						</span>
+					</span>
+				</form>
+				<hr />
+				<ul id="comments_set">
+					{% for comment in comments %}
+					<li>
+						<div class="comment">
+							<div class="comment-author">
+								<img src="{{comment.author.logo.url}}" alt="" />
+							</div>
+							<div class="comment-text">
+								<h4 style="margin-bottom: 5px">{{ comment.author.name }}</h4>
+								<p>{{ comment.text }}</p>
+							</div>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="{% static 'clup_joy/js/subscribe_form.js' %}"></script>
+<script src="{% static 'clup_joy/js/like_form.js' %}"></script>
+<script src="{% static 'clup_joy/js/comment_form.js' %}"></script>
+<script src="{% static 'clup_joy/js/del_video.js' %}"></script>
+
+<input type="hidden" id="username" value="{{ user.name }}">
+<input type="hidden" id="userlogo" value="{{ user.logo.url }}">
+{% endblock content %}

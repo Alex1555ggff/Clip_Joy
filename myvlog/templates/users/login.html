@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+<p></p>
+
+{% block title %} {{ title }} {% endblock title %}
+<p></p>
+
+{% block style %} {% load static %}
+
+<link rel="stylesheet" href='{% static "clup_joy/css/login.css" %}' />
+{% endblock style %}
+<p></p>
+
+{% block content %}
+<div class="contain">
+	<div class="login_contain">
+		<span class="mainlable">Вход</span>
+		<div class="form_contain">
+			<form action="" method="post">
+				{% csrf_token %} {{ form.as_p }}
+
+				<a
+					class="reset_password_contain"
+					href="{% url 'users:password_reset' %}"
+					>Забыли пароль?
+				</a>
+
+				<span class="btn_sub">
+					<button type="submit">Войти</button>
+				</span>
+			</form>
+		</div>
+	</div>
+
+	<div class="logout_contain">
+		<span
+			>Еще не аккаунта? <a href="/users/register">Зарегистрируйтесь</a>
+		</span>
+	</div>
+</div>
+{% endblock content %}
